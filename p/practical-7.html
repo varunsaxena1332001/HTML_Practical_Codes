@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practical-7</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        
+        }
+        #container{
+            background-color: white;
+            
+            
+            height: 100%;
+            border-radius: 10px;
+            border: solid lightgrey 10px;;
+            width: 1200px;
+            margin: 0px auto;
+            padding: 15px;
+        }
+        #header{
+            margin-bottom: 10px;
+            background-color: grey;
+            text-align: center;
+            color: white;
+            height: 70px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+        }
+        #banner{
+            background-color: skyblue;
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            height: 600px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 70px;
+        }
+        #section-1{
+            text-align: center; font-size: 36px; color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            height: 70px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 40px;
+
+        }
+        #sectionTag{
+            /*float: left;*/
+            margin-left: 50px;
+            margin-right: 50px;
+            display: flex;
+          flex-direction: row;
+          margin-bottom: 10px;
+        }
+        #firstCircle{
+            background-color: yellow;
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            margin-left: 60px;
+            margin-right: 40px;
+        }
+        #secCircle{
+            background-color: yellow;
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        #thirdCircle{
+            background-color: yellow;
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        #forthCircle{
+            background-color: yellow;
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        #section-2{
+            height: 70px;
+            width: 100%;
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        #sectionTag-2{
+            /*float: left;*/
+            margin-left: 10px;
+            margin-right: 10px;
+            display: flex;
+          flex-direction: row;
+          margin-bottom: 10px;
+          
+        }
+        #main{
+            height: 452px;
+            width: 50%;
+            background-color: grey;
+            /*border: 3px solid black;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            color: white;
+        }
+        #article{
+            margin-left: 10px;
+            margin-right: 5px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+        #article-1{
+            height: 144px;
+            width: 600px;
+            background-color: darkorange;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            /*border: 2px solid black;*/
+
+        }
+        #article-2{
+            height: 144px;
+            width: 600px;
+            background-color: darkorange;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            /*border: 2px solid black;*/
+
+        }
+        #article-3{
+            height: 144px;
+            width: 600px;
+            background-color: darkorange;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            /*border: 2px solid black;*/
+
+        }
+        #section-3{
+            height: 70px;
+            width: 100%;
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        #sectionTag-3{
+            margin-left: 140px;
+            margin-right: 100px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10px;
+        }
+        #block-1{
+            height: 270px;
+            width: 200px;
+            background-color: brown;
+            
+            margin-right: 50px;
+        }
+        #block-2{
+            height: 270px;
+            width: 200px;
+            background-color: brown;
+            
+            margin-right: 50px;
+        }
+        #block-3{
+            height: 270px;
+            width: 200px;
+            background-color: brown;
+            
+            margin-right: 50px;
+        }
+        #block-4{
+            height: 270px;
+            width: 200px;
+            background-color: brown;
+            
+            margin-right: 50px;
+        }
+        #section-4{
+            height: 70px;
+            width: 100%;
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        #footer{
+            margin-bottom: 10px;
+            background-color: purple;
+            text-align: center;
+            color: white;
+            height: 70px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">Header</div>
+        <div id="banner">Banner</div>
+        <div id="section-1">Section-1</div>
+        <div id="sectionTag">
+            <div id="firstCircle"></div>
+            <div id="secCircle"></div>
+            <div id="thirdCircle"></div>
+            <div id="forthCircle"></div>
+        </div>
+        <div id="section-2">Section-2</div>
+        <div id="sectionTag-2">
+            <div id="main">Main Content</div>
+            <div id="article">
+                <div id="article-1">Artical-1</div>
+                <div id="article-2">Artical-2</div>
+                <div id="article-3">Artical-3</div>
+            </div>
+        </div>
+        <div id="section-3">Section-3</div>
+        <div id="sectionTag-3">
+            <div id="block-1"></div>
+            <div id="block-2"></div>
+            <div id="block-3"></div>
+            <div id="block-4"></div>
+        </div>
+        <div id="section-4">Section-4</div>
+        <div id=footer>Footer</div>
+    </div>
+</body>
+</html>
