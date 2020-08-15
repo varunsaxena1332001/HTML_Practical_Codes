@@ -34,7 +34,7 @@
             justify-content: center;
             align-items: center;
             font-size: 36px;
-            
+            z-index: 4;
         }
         .nav li {
             display: inline;
@@ -66,13 +66,22 @@
             height: 600px;
             width: 100%;
             display: flex;
+            /*
             justify-content: center;
-            align-items: center;
-            font-size: 70px;
+            align-items: center;*/
+            font-size: 30px;
+            
         }
         #banner img{
+            position: absolute;
             height: 600px;
-            width: 100%;
+            width: 1200px;
+            z-index: 1;
+        }
+        #banner h1{
+            position: absolute;
+            z-index: 2;
+            text-align: left;
         }
         #section-1{
             text-align: center; font-size: 36px; color: black;
@@ -354,15 +363,18 @@
     <div id="container">
         <div id="header">
             <ul class="nav">
-                <li><a href="#Home">Home</a></li>
+                <li><a href="#header">Home</a></li>
                 <li><a href="#section-2">About Project</a></li>
                 <li><a href="#section-1">Projects</a></li>
                 <li><a href="#section-3">Technologies</a></li>
                 <li><a href="#section-4">Contact us</a></li>
               </ul>
         </div>
-        <div><h1 id="Home">Practical-8</h1></div>
-        <div id="banner"><img src="../img/emile-perron-xrVDYZRGdw4-unsplash.jpg" alt="banner"></div>
+        
+        <div id="banner">
+            <h1 id="Home">Practical-8</h1>
+            <img src="../img/emile-perron-xrVDYZRGdw4-unsplash.jpg" alt="banner">
+        </div>
         <div id="section-1">Team Members</div>
         <div id="sectionTag">
             <div id="firstCircle"><img src="../img/1.png" alt="firstMember"></div>
@@ -398,7 +410,7 @@
                 <img src="https://varunsaxena1332001.github.io/HTML_Practical_Codes/img/CSS.png" alt="css">
         <h4>Introduction to CSS</h4>
         <p>
-            CSS is short for Cascading Style Sheets, and is the preferred way for setting the look and feel of a website. Cascading Style Sheets (CSS) is a markup language responsible for how your web pages will look like. It controls the colors, fonts, and layouts of your website elements.
+            CSS is short for Cascading Style Sheets, and is the preferred way for setting the look and feel of a website. Cascading Style Sheets (CSS) is a markup language responsible for how your web pages will look like. It controls the colors, fonts, and layouts of
         </p>
         <a href="https://varunsaxena1332001.github.io/HTML_Practical_Codes/p/CSS_Documentation.html" target="_blank">Read More</a>
     
@@ -408,7 +420,7 @@
         <h4>Introduction to JavaScript</h4>
         <p>
             JavaScript was initially created to “make web pages alive”. The programs in this language are called scripts. It was created in 1995 by Brendan Eich while he was an engineer at Netscape. 
-             Unlike most programming languages, the JavaScript language has no concept of input or output. 
+             Unlike most programming languages, the JavaScript language has no concept 
         </p>
         <a href="https://varunsaxena1332001.github.io/HTML_Practical_Codes/p/JavaScript_Documentation.html" target="_blank">Read More</a>
     
