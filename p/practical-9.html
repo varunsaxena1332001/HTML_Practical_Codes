@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-9</title>
+    <!-- Fontawesome CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        html{
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        .container{
+            height: 100%;
+            width: 100%;
+        }
+
+        .header .show-btn:hover , .hide-btn:hover{
+            color: black;
+            /* transition: 2s; */
+        }
+        .show-btn , .hide-btn{
+            font-size: 30px;
+            color: white;
+            line-height: 80px;
+            display: none;
+        }
+        .show-btn{
+            float: right;
+        }
+        
+        #chk {
+            position:absolute ;
+            visibility: hidden;
+            z-index: -10;
+        }
+
+       @media(min-width:1200px){
+        .header{
+            position:fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: grey;
+            /* display: flex;
+            justify-content:space-evenly;
+            align-content: center; */
+        }
+        .menu{
+            list-style: none;
+            text-align: center;
+            float: right;
+        }
+        .menu li{
+            display: inline-block;
+            line-height: 80px;
+        }
+        .menu li a{
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: white;
+            width: 150px;
+            font-size: 20px;
+            transition: 1s;
+        }
+        .menu li a:hover{
+            background-color: white;
+            color: black;
+        }
+        #text{
+            font-size: 40px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bolder;
+        }
+        .banner{
+            height: 650px;
+            margin-top: 100px;
+            overflow: hidden;
+            background-image: url(../img/emile-perron-xrVDYZRGdw4-unsplash.jpg);
+            margin-bottom: 100px;
+            background-size: 100% 100%;
+        }
+        .banner h1{
+            text-transform: uppercase;
+            font-size: 50px;
+            color: white;
+        }
+        .team{
+            width: 100%;
+            height: 400px;
+            margin-bottom: 80px;
+        }
+        .team .circle{
+            border-radius: 50%;
+            height: 280px;
+            width: 280px;
+            float: left;
+            margin: 50px 25px;
+            overflow: hidden;
+        }
+        .circle img{
+            width: 100%;
+        }
+        .about{
+            height: 600px;
+            overflow: hidden;
+            margin-bottom: 80px;
+            padding: 0px 3px;
+        }
+        .about .mainContent{
+            margin-top: 20px;
+            width: 49.5%;
+            height: 100%;
+            background-color:lightskyblue;
+            text-align: justify;
+            padding: 0px 5px;
+            margin-right: 0.5%;
+            float: left;
+        }
+        .mainContent h3{
+            margin-bottom: 15px;
+        }
+        .about .artical{
+            width: 50%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .artical #block1{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p1.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical #block2{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p2.jpeg);
+			background-size: 100% 100%;            
+        }
+
+        .artical #block3{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p3.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical h2 {
+            text-align: center;    
+        }
+        .tech{
+            width: 100%;
+            height: 550px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .tech .box{
+            width: 23.5%;
+            margin: 40px 8px;
+            float: left;
+            height: 410px;
+            background-color:lightskyblue;
+            border-radius: 3%;
+            padding: 5px;
+            box-shadow: 3px 3px 5px teal;
+        }
+        .tech .box:hover{
+            background-color: black;
+            transition: 2s;
+            color: white;
+        }
+        .box #boxImg{
+            width: 100%;
+            height: 35%;
+            border-radius: 3%;
+            margin-bottom: 8px;
+            border: solid black;
+        }
+        .box #boxText{
+            height: 140px;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+        .box #boxLink{
+            display: block;
+            width: 100%;
+            height: 40px;
+            border-radius: 6px;
+            background-color:red;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box #boxLink:hover{
+            background-color:blue;
+            color:white;
+            transition: 1s;
+        }
+
+        .contact{
+            height: 150px;
+            
+        }
+        .contact #footer{
+            width: 100%; 
+            background-color:lightskyblue;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+       }
+
+       @media(min-width: 801px) and (max-width: 1199px){
+        .header{
+            position:fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: grey;
+            /* display: flex;
+            justify-content:space-evenly;
+            align-content: center; */
+        }
+        .menu{
+            list-style: none;
+            text-align: center;
+            float: right;
+        }
+        .menu li{
+            display: inline-block;
+            line-height: 80px;
+        }
+        .menu li a{
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: white;
+            width: 150px;
+            font-size: 20px;
+            transition: 1s;
+        }
+        .menu li a:hover{
+            background-color: white;
+            color: black;
+        }
+        #text{
+            font-size: 40px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bolder;
+        }
+        .banner{
+            height: 650px;
+            margin-top: 100px;
+            overflow: hidden;
+            background-image: url(../img/emile-perron-xrVDYZRGdw4-unsplash.jpg);
+            margin-bottom: 100px;
+            background-size: 100% 100%;
+        }
+        .banner h1{
+            text-transform: uppercase;
+            font-size: 50px;
+            color: white;
+        }
+        .team{
+            width: 100%;
+            height: 800px;
+            margin-bottom: 80px;
+        }
+        .team .circle{
+            display: block;
+            border-radius: 50%;
+            height: 300px;
+            width:  300px;
+            float: left;
+            margin: 50px 6%;
+            overflow: hidden;
+        }
+        .circle img{
+            width: 100%;
+        }
+        .about{
+            height: 600px;
+            overflow: hidden;
+            margin-bottom: 80px;
+            padding: 0px 3px;
+        }
+        .about .mainContent{
+            margin-top: 20px;
+            width: 49.5%;
+            height: 100%;
+            background-color:lightskyblue;
+            text-align: justify;
+            padding: 0px 5px;
+            margin-right: 0.5%;
+            float: left;
+        }
+        .mainContent h3{
+            margin-bottom: 15px;
+        }
+        .about .artical{
+            width: 50%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .artical #block1{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p1.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical #block2{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p2.jpeg);
+			background-size: 100% 100%;            
+        }
+
+        .artical #block3{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p3.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical h2 {
+            text-align: center;    
+        }
+        .tech{
+            width: 100%;
+            height: 1100px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .tech .box{
+            width: 40%;
+            margin: 40px 5%;
+            float: left;
+            height: 410px;
+            background-color:lightskyblue;
+            border-radius: 3%;
+            padding: 5px;
+            box-shadow: 3px 3px 25px teal;
+        }
+        .tech .box:hover{
+            background-color: black;
+            transition: 2s;
+            color: white;
+        }
+        .box #boxImg{
+            width: 100%;
+            height: 35%;
+            border-radius: 3%;
+            margin-bottom: 8px;
+            border: solid black;
+        }
+        .box #boxText{
+            height: 140px;
+            text-align: justify;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+        .box #boxLink{
+            display: block;
+            width: 100%;
+            height: 40px;
+            border-radius: 6px;
+            background-color:red;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box #boxLink:hover{
+            background-color:blue;
+            color:white;
+            transition: 1s;
+        }
+
+        .contact{
+            height: 150px;
+            
+        }
+        .contact #footer{
+            width: 100%; 
+            background-color:lightskyblue;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+       }
+       @media(min-width:626px) and (max-width:800px){
+        .header{
+            position:fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: grey;
+            padding-right: 10px;
+            /* display: flex;
+            justify-content:space-evenly;
+            align-content: center; */
+        }
+        .menu{
+            list-style: none;
+            text-align: center;
+            float: right;
+        }
+        .menu li{
+            display: inline-block;
+            line-height: 80px;
+        }
+        .menu li a{
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: white;
+            width: 150px;
+            font-size: 20px;
+            transition: 1s;
+        }
+        .menu li a:hover{
+            background-color: white;
+            color: black;
+        }
+
+
+        .show-btn , .hide-btn{
+                display: block;
+            }
+            .menu{
+                position: fixed;
+                top: 0;
+                /* slider effect creation */
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: royalblue;
+                text-align: center;
+                padding:100px 0px;
+                transition: 1s;
+            }
+            #chk:checked ~ .menu{
+                right: 0;  
+            }
+            .header .menu li{
+                display: block;
+            }
+            .header .menu li a{ 
+                display: block;
+                width: 100%;
+            }
+            .hide-btn{
+                position: absolute;
+                right:30px;
+                top :10px;
+            }
+
+
+        #text{
+            font-size: 40px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bolder;
+        }
+        .banner{
+            height: 450px;
+            margin-top: 100px;
+            overflow: hidden;
+            background-image: url(../img/emile-perron-xrVDYZRGdw4-unsplash.jpg);
+            margin-bottom: 70px;
+            background-size: 100% 100%;
+        }
+        .banner h1{
+            text-transform: uppercase;
+            font-size: 30px;
+            color: white;
+        }
+        .team{
+            width: 100%;
+            height: 700px;
+            margin-bottom: 80px;
+        }
+        .team .circle{
+            display: block;
+            border-radius: 50%;
+            height: 260px;
+            width:  260px;
+            float: left;
+            margin: 50px 4%;
+            overflow: hidden;
+        }
+        .circle img{
+            width: 100%;
+        }
+        .about{
+            height: 800px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            padding: 0px 3px;
+        }
+        .about .mainContent{
+            margin-top: 20px;
+            width: 100%;
+            height: 200px;
+            background-color:lightskyblue;
+            text-align: justify;
+            padding: 0px 5px;
+            margin-right: 0.5%;
+            float: left;
+            overflow: hidden;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+        }
+        .mainContent h3{
+            margin-bottom: 15px;
+        }
+        .about .artical{
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .artical #block1{
+            height: 170px;
+            margin-bottom: 8px;
+            background-image: url(../img/p1.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical #block2{
+            height: 170px;
+            margin-bottom: 8px;
+            background-image: url(../img/p2.jpeg);
+			background-size: 100% 100%;            
+        }
+
+        .artical #block3{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p3.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical h2 {
+            text-align: center;    
+        }
+        .tech{
+            width: 100%;
+            height: 1100px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .tech .box{
+            width: 40%;
+            margin: 40px 5%;
+            float: left;
+            height: 410px;
+            background-color:lightskyblue;
+            border-radius: 3%;
+            padding: 5px;
+            box-shadow: 3px 3px 25px teal;
+        }
+        .tech .box:hover{
+            background-color: black;
+            transition: 2s;
+            color: white;
+        }
+        .box #boxImg{
+            width: 100%;
+            height: 35%;
+            border-radius: 3%;
+            margin-bottom: 8px;
+            border: solid black;
+        }
+        .box #boxText{
+            height: 140px;
+            text-align: justify;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        .box #boxLink{
+            display: block;
+            width: 100%;
+            height: 40px;
+            border-radius: 6px;
+            background-color:red;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box #boxLink:hover{
+            background-color:blue;
+            color:white;
+            transition: 1s;
+        }
+
+        .contact{
+            height: 150px;
+            
+        }
+        .contact #footer{
+            width: 100%; 
+            background-color:lightskyblue;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+       }
+       @media (min-width: 320px) and (max-width: 625px){
+        .header{
+            position:fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: grey;
+            padding-right: 10px;
+        }
+        .menu{
+            list-style: none;
+            text-align: center;
+            float: right;
+        }
+        .menu li{
+            display: inline-block;
+            line-height: 80px;
+        }
+        .menu li a{
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: white;
+            width: 150px;
+            font-size: 20px;
+            transition: 1s;
+        }
+        .menu li a:hover{
+            background-color: white;
+            color: black;
+        }
+
+
+        .show-btn , .hide-btn{
+                display: block;
+            }
+            .menu{
+                position: fixed;
+                top: 0;
+                /* slider effect creation */
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: royalblue;
+                text-align: center;
+                padding:100px 0px;
+                transition: 1s;
+            }
+            #chk:checked ~ .menu{
+                right: 0;  
+            }
+            .menu li a::after ~ .menu{
+                right: -100%;
+            }
+            .header .menu li{
+                display: block;
+            }
+            .header .menu li a{ 
+                display: block;
+                width: 100%;
+            }
+            .hide-btn{
+                position: absolute;
+                right:30px;
+                top :10px;
+            }
+
+
+        #text{
+            font-size: 40px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bolder;
+        }
+        .banner{
+            height: 280px;
+            margin-top: 100px;
+            overflow: hidden;
+            background-image: url(../img/emile-perron-xrVDYZRGdw4-unsplash.jpg);
+            margin-bottom: 100px;
+            background-size: 100% 100%;
+        }
+        .banner h1{
+            text-transform: uppercase;
+            font-size: 20px;
+            color: white;
+        }
+        .team{
+            width: 100%;
+            height: 1600px;
+            margin-bottom: 80px;
+        }
+        .team .circle{
+            border-radius: 50%;
+            height: 300px;
+            width:  300px;
+            float: left;
+            margin: 50px 5%;
+            overflow: hidden;
+        }
+        .circle img{
+            width: 100%;
+        }
+        .about{
+            height: 800px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            padding: 0px 3px;
+        }
+        .about .mainContent{
+            margin-top: 20px;
+            width: 100%;
+            height: 200px;
+            background-color:lightskyblue;
+            text-align: justify;
+            padding: 0px 5px;
+            margin-right: 0.5%;
+            float: left;
+            overflow: hidden;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+        }
+        .mainContent h3{
+            margin-bottom: 15px;
+        }
+        .about .artical{
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .artical #block1{
+            height: 170px;
+            margin-bottom: 8px;
+            background-image: url(../img/p1.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical #block2{
+            height: 170px;
+            margin-bottom: 8px;
+            background-image: url(../img/p2.jpeg);
+			background-size: 100% 100%;            
+        }
+
+        .artical #block3{
+            height: 170px;
+            margin-bottom: 12px;
+            background-image: url(../img/p3.jpg);
+			background-size: 100% 100%;            
+        }
+        .artical h2 {
+            text-align: center;    
+        }
+        .tech{
+            width: 100%;
+            height: 2100px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .tech .box{
+            width: 80%;
+            margin: 40px 10%;
+            float: left;
+            height: 410px;
+            background-color:lightskyblue;
+            border-radius: 3%;
+            padding: 5px;
+            box-shadow: 3px 3px 25px teal;
+        }
+        .tech .box:hover{
+            background-color: black;
+            transition: 2s;
+            color: white;
+        }
+        .box #boxImg{
+            width: 100%;
+            height: 35%;
+            border-radius: 3%;
+            margin-bottom: 8px;
+            border: solid black;
+        }
+        .box #boxText{
+            height: 140px;
+            text-align: justify;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        .box #boxLink{
+            display: block;
+            width: 100%;
+            height: 40px;
+            border-radius: 6px;
+            background-color:red;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box #boxLink:hover{
+            background-color:blue;
+            color:white;
+            transition: 1s;
+        }
+
+        .contact{
+            height: 150px;
+            
+        }
+        .contact #footer{
+            width: 100%; 
+            background-color:lightskyblue;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+       }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <input type="checkbox"  id="chk">
+            <label for="chk" class="show-btn">
+                <i class="fa fa-bars" ></i>
+            </label>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About it</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#tech">Technology</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <label for="chk" class="hide-btn">
+                    <i class="fa fa-times" ></i>
+                </label>
+            </ul>
+        </div>
+        <div class="banner">
+            <h1>Practical-9</h1>
+        </div>
+        <div class="team" id="team">
+            <p id="text">Team Members</p>
+            <div class="circle"><img src="../img/1.png" alt="firstMember"></div>
+            <div class="circle"><img src="../img/2.png" alt="secondMember"></div>
+            <div class="circle"><img src="../img/3.png" alt="thirdMember"></div>
+            <div class="circle"><img src="../img/9.png" alt="forthMember"></div>
+        </div>
+        <div class="about" id="about">
+            <p id="text">About Project</p>
+            <div class="mainContent">
+                <h3>MyWork</h3>
+                <p>Hello friends, This is Varun Saxena.I have completed this project by using list , navigation bar and positioning.</p>
+            </div>
+            <div class="artical">
+                <div id="block1"><h2>Project-1</h2></div>
+                <div id="block2"><h2>Project-2</h2></div>
+                <div id="block3"><h2>Project-3</h2></div>
+            </div>   
+        </div>
+        <div class="tech" id="tech">
+            <p id="text">Technologies Used</p>
+            <div class="box" id="first"> <img id="boxImg" src="https://varunsaxena1332001.github.io/HTML_Practical_Codes/img/HTML.png" alt="Html_image"> <h3>  Introduction to HTML </h3><br> <p id="boxText">Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.</p> <a id="boxLink" href="https://varunsaxena1332001.github.io/HTML_Practical_Codes/p/HTML_Documentation.html" target="_blank">Read More</a> </div>
+            <div class="box" id="sec"><img id="boxImg" src="https://varunsaxena1332001.github.io/HTML_Practical_Codes/img/CSS.png" alt="CSS_image">
+                <h3>  Introduction to CSS </h3><br><p id="boxText">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.CSS is a cornerstone technology of the World Wide Web, alongside HTML .</p> <a id="boxLink" href="https://varunsaxena1332001.github.io/HTML_Practical_Codes/p/CSS_Documentation.html" target="_blank">Read More</a></div>
+            <div class="box" id="third"><img id="boxImg" src="https://varunsaxena1332001.github.io/HTML_Practical_Codes/img/JavaScript.png" alt="javascript">
+                <h3>  Introduction to Javascript </h3><br> <p id="boxText">JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.Alongside HTML, CSS and JavaScript </p><a id="boxLink" href="https://varunsaxena1332001.github.io/HTML_Practical_Codes/p/JavaScript_Documentation.html"target="_blank">Read More</a> </div>
+            <div class="box" id ="fourth"><img id="boxImg" src="https://varunsaxena1332001.github.io/HTML_Practical_Codes/img/bootstrap_2.png" alt="bootstrap">
+                <h3>  Introduction to bootstrap </h3> <br> <p id="boxText">Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and (optionally) JavaScript-based design templates for typography, forms, buttons, navigation .</p> <a id="boxLink" href="https://varunsaxena1332001.github.io/HTML_Practical_Codes/p/Bootstrap.html"target="_blank">Read More</a> </div>
+        </div>
+        <div class="contact" id="contact">
+            <p id="text">Contact Us</p>
+            <div id="footer">
+                <p>completed by Varun Saxena</p>
+                <br>
+                <a href="#container">Back to Top</a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
