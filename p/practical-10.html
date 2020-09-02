@@ -43,6 +43,7 @@
         .content p{
             text-align: justify;
             padding: 20px 20px;
+            font-size: 20px;
         }
         .sidebar{
             position: fixed;
@@ -66,10 +67,16 @@
             padding: 20px 10px;
             transition: .4s;
         }
+        .sidebar ul li a:hover{
+            border-left: 10px solid white;
+        }
+        .sidebar ul li a i{
+            margin-right: 10px;
+        }
         .sidebar .socialIcon{
             
             margin-top: 160px;
-            padding: 5px 0px;
+            padding: 10px 0px;
             font-size: 20px;
             display: flex;
             justify-content: space-evenly;
@@ -83,7 +90,7 @@
             color: white;
         }
         .sidebar .socialIcon a i:hover{
-            transform: scale(1,5);
+            transform: scale(1.5);
         }
         .show-btn, .hide-btn{
             color: white;
@@ -125,25 +132,25 @@
         <img src="..\img\fullStack.png" alt="">
         <h1>FullStack</h1>
     </div>
-    <input type="checkbox" name="" id="chk">
+    <input type="checkbox" id="chk">
     <label for="chk" class="show-btn">
-        <i class="fas fa-bars"></i>
+        <i class="fa fa-bars"></i>
     </label>
     <label for="chk" class="hide-btn">
-        <i class="fas fa-times"></i>
+        <i class="fa fa-times"></i>
     </label>
     <div class="sidebar">
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-book"></i>About Project</a></li>
-            <li><a href="#"><i class="fas fa-users"></i>Team</a></li>
-            <li><a href="#"><i class="fas fa-laptop"></i>Technology</a></li>
-            <li><a href="#"><i class="fas fa-id-card"></i>Contact Us</a></li>
+            <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-book"></i>About Project</a></li>
+            <li><a href="#"><i class="fa fa-users"></i>Team</a></li>
+            <li><a href="#"><i class="fa fa-laptop"></i>Technology</a></li>
+            <li><a href="#"><i class="fa fa-mobile"></i>Contact Us</a></li>
         </ul>
         <div class="socialIcon">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram-square"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
     </div>
     <div class="content">
