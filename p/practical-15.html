@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical-15</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(63, 62, 62);
+        }
+        .container>h1{
+            margin-top: 120px;
+            font-size: 90px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: yellow;
+        }
+        .counter{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            border: none;
+            
+            display: block;
+            margin: 30px;
+            margin-top: 50px;
+            color: black;
+            background-color: yellow;
+            height: 70px;
+            width: 70px;
+            font-size: 40px;
+        }
+        .counter h1{
+            color: yellow;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            font-weight: normal;
+        }
+        button:focus { outline: none; }
+        #btn2{
+            box-shadow: 3px 3px 3px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>counter</h1>
+        <div class="counter">
+            <button id="btn1" onclick="clickneg()">-</button><h1 id="changement">0</h1><button id="btn2" onclick="clickpos()">+</button>
+        </div>
+    </div>
+    <script>
+        var x=Number(document.getElementById("changement").innerHTML)
+        function clickneg(){
+            if (x>0){
+                x=x-1;
+                document.getElementById("changement").innerHTML=x;
+            }
+            if(x==0){
+                document.getElementById("btn1").style.boxShadow="none";
+            }
+        }
+        function clickpos(){
+            x=x+1;
+            document.getElementById("changement").innerHTML=x;
+            document.getElementById("btn1").style.boxShadow="3px 3px 3px black";
+        }
+    </script>
+</body>
+</html>
