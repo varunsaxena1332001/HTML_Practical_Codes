@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Todo List</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background: linear-gradient(120deg,skyblue,blue);
+            color: white;
+            min-height: 100vh;
+        }
+        h1,form{
+            height: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-size: 40px;
+        }
+        form input,form button{
+            padding: 10px;
+            border: none;
+            font-size: 24px;
+            background-color: #fff;
+            outline: none;
+        }
+        
+        form button{
+            color: blue;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        form button:hover{
+            background-color:skyblue;
+            color: white;
+        }
+        /* ---------------New List Container----------------- */
+
+        .todo-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .todo-list{
+            list-style: none;
+            min-width: 25%;
+            /* background-color: white; */
+        }
+        .todo{
+            margin: 8px;
+            background-color: #fff;
+            color: black;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .todo-item{
+            flex: 1;
+            margin: 0 8px;
+        }
+        .check-btn,.delete-btn{
+            background-color: rgb(19, 211, 121);
+            color: white;
+            border: none;
+            outline: none; 
+            padding: 16px;
+            font-size: 16px;
+        }
+        .delete-btn{
+            background-color:palevioletred;
+        }
+        .fa-check,.fa-trash{
+            pointer-events: none;
+        }
+        .completed{
+            text-decoration: line-through;
+            opacity: .5;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Fullstack To-do List</h1>
+    <form>
+        <input type="text" class="todo-input">
+        <button class="todo-button">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+        </button>
+    </form>
+    <!-- New List Container -->
+
+    <div class="todo-container">
+        <ul class="todo-list">
+            <!-- <div>
+                <li></li>
+                <button></button>
+                <button></button>
+            </div> -->
+        </ul>
+    </div>
+    <script>
+        // selector
+        var todoInput=document.querySelector(".todo-input");
+        var todoButton=document.querySelector(".todo-button");
+        var todoList=document.querySelector(".todo-list");
+
+
+        // Event Handlers
+        todoButton.onclick=create;
+        todoList.onclick = checkdelete;
+
+        // Function
+
+        function create(e){
+            e.preventDefault();
+            var newDiv = document.createElement("div");   //create new div tag
+            newDiv.classList.add("todo");    // to set class name to this new div tag
+
+            var newLi=document.createElement("li");
+            newLi.classList.add("todo-item");
+            if(todoInput.value===""){
+                alert("Please Enter a value in to-do list")
+            }
+            else{
+                newLi.innerHTML=todoInput.value;
+                todoInput.value="";
+                newDiv.appendChild(newLi);
+                var checkbtn = document.createElement("button");
+                checkbtn.classList.add("check-btn");
+                checkbtn.innerHTML='<i class="fa fa-check"></i>';
+                newDiv.appendChild(checkbtn);
+
+                var deletebtn = document.createElement("button");
+                deletebtn.classList.add("delete-btn");
+                deletebtn.innerHTML='<i class="fa fa-trash"></i>';
+                newDiv.appendChild(deletebtn);
+
+                todoList.appendChild(newDiv);
+            } 
+        }
+        function checkdelete(e){
+            var item=e.target;
+            // checking clicked button is delete-btn
+            if(item.classList[0]==="delete-btn")
+            {
+                var parent = item.parentNode;
+                parent.remove();
+            }
+            // checking clicked button is check-btn
+            if(item.classList[0]==="check-btn")
+            {
+                var parent = item.parentNode;
+                parent.classList.toggle("completed");
+            }
+        }
+    </script>
+</body>
+</html>
